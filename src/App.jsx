@@ -1,53 +1,24 @@
-import { useEffect, useState } from 'react';
-import './App.scss';
-import Create from './Components/Create';
-import DataContext from './Components/DataContext';
-import List from './Components/List';
-import { create, read } from './Functions/localStorage';
 
-const key = 'movies';
+import './App.scss';
+import Avys from './Avys';
+
 
 
 function App() {
+    return (
+      <div className="App">
+        <header className="App-header">
 
-  const [lastUpdate, setLastUpdate] = useState(Date.now());
-  const [movies, setMovies] = useState(null);
-  const [createData, setCreateData] = useState(null);
-
-  // READ
-  useEffect(() => {
-    setMovies(read(key));
-  }, [lastUpdate]);
-
-
-  // CREATE
-  useEffect(() => {
-    if (null === createData) {
-      return;
-    }
-    create(key, createData);
-    setLastUpdate(Date.now())
-  }, [createData]);
-
-
-
-  return (
-    <DataContext.Provider value={{
-      setCreateData,
-      movies
-    }}>
-      <div className="container">
-        <div className="row">
-          <div className="col-4">
-            <Create />
-          </div>
-          <div className="col-8">
-            <List />
-          </div>
-        </div>
+      <h1>“Avyciu bandele”</h1>
+      <Avys persons={['Gretute', 'Magute']}/>
+      
+  
+  
+  
+     
+        </header>
       </div>
-    </DataContext.Provider>
-  );
-}
-
-export default App;
+    );
+  }
+  
+  export default App;
