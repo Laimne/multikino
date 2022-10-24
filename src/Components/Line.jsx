@@ -13,7 +13,7 @@ function Line({ movie }) {
                     </div>
                     <div className="movie__content__year">
                         {movie.year}
-                    </div>
+                   </div>
                 </div>
                 <div className="movie__buttons">
                 <button type="button" className="btn btn-outline-success">Edit</button>
